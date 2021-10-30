@@ -1,15 +1,17 @@
 :root {
-  all: unset;
   box-sizing: border-box;
   --palenight-background: #292d3e;
+  --palenight-foreground: #A6ACCD;
   --palenight-blue: #82aaff;
   --palenight-accent: #ab47bc;
+  --palenight-border: #2B2A3E;
+  --palenight-second-background: #34324a;
 }
 
 body {
   background-color: var(--palenight-background);
   color: var(--palenight-blue);
-  font: 24pt "Roboto";
+  font: 28pt "Roboto";
 }
 
 .title {
@@ -27,14 +29,40 @@ body {
 
 /* The ruleset specifies sidebar layout */
 .control-panel {
-  height: 720px;
-  width: 140px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  border: 3px solid var(--palenight-border);
+  background-color: var(--palenight-second-background);
+  border-radius: 15px;
+  height: 750px;
+  width: 150px;
+}
+
+.control-panel__button { 
+  all: unset;
+  font-size: 18pt;
+  width: 75%;
+  text-align: center;
+  padding: 5px;
+  border: 2px solid var(--palenight-border);
+  background-color: var(--palenight-background);
+  border-radius: 5px;
+}
+
+.control-panel__button:hover {
+  border: 2px solid var(--palenight-accent);
 }
 
 .painting-grid {
   display: grid;
-  border: 1px solid black;
-  width: 720px;
+  border: 3px solid var(--palenight-border);
+  border-radius: 15px;
+  background-color: var(--palenight-second-background);
+  width: 750px;
+  padding: 25px;
 }
 
 .grid-cell {
