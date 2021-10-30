@@ -8,7 +8,3 @@ function resetEventListener(event) {
   );
 }
 
-function colorEventListener(event) {}
-
-function gridEventListener(event) {
-}
