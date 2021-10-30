@@ -1,0 +1,43 @@
+:root {
+  all: unset;
+  box-sizing: border-box;
+  --palenight-background: #292d3e;
+  --palenight-blue: #82aaff;
+  --palenight-accent: #ab47bc;
+}
+
+body {
+  background-color: var(--palenight-background);
+  color: var(--palenight-blue);
+  font: 24pt "Roboto";
+}
+
+.title {
+    text-align: center;
+    margin: 30px auto;
+}
+
+/* The ruleset specifies general layout of the sidebar and the painting grid */
+.main-flex {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* The ruleset specifies sidebar layout */
+.control-panel {
+  height: 720px;
+  width: 140px;
+}
+
+.painting-grid {
+  display: grid;
+  border: 1px solid black;
+  width: 720px;
+}
+
+.grid-cell {
+  border: 1px solid #333333;
+  background-color: white;
+}
