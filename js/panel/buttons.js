@@ -1,4 +1,4 @@
-export { resetEventListener };
+export { resetEventListener, gridButtonEventListener };
 
 function resetEventListener(event) {
   /* Sets up the event listener that resets grid cell background colors */
@@ -8,3 +8,10 @@ function resetEventListener(event) {
   );
 }
 
+function gridButtonEventListener(event) {
+  const overlay = document.querySelector('#overlay');
+  overlay.classList.add('active');
+
+  const gridMessageModal = document.querySelector('#grid-message');
+  gridMessageModal.classList.add('active');
+}
