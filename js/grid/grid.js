@@ -1,4 +1,9 @@
-export { createPaintingGrid, createPaintListener, setPaintingGridColor };
+export {
+  createPaintingGrid,
+  createPaintListener,
+  setPaintingGridColor,
+  removePaintingGrid,
+};
 
 function createPaintListener(color) {
   /** Helper function that creates the event listener than changes the color of the element
@@ -14,16 +19,23 @@ function createPaintListener(color) {
   return paintListener;
 }
 
-function createPaintingGrid(height, width, paintListener) {
+function createPaintingGrid(
+  height,
+  width,
+  paintListener,
+  paintingGridClass = "painting-grid"
+) {
   /** Creates a painting grid with the defined height and width.
    * @param {Number} height - the number of grid cells in vertical dimension
    * @param {Number} width - the number of grid cells in horizontal dimension
+   * @param {Function} paintListener - the event listener to be called upon mouse being over a cell
+   * @param {String} paintingGridClass
    * @returns {Node} gridNode - the element with grid-cells attached to it
    */
 
   // Create a div styled with the 'display: grid' property
   const gridNode = document.createElement("div");
-  gridNode.classList.add("painting-grid");
+  gridNode.classList.add(paintingGridClass);
 
   gridNode.style.setProperty("grid-template-columns", `repeat(${width}, 1fr)`);
   gridNode.style.setProperty("grid-template-rows", `repeat(${height}, 1fr)`);
@@ -48,4 +60,12 @@ function setPaintingGridColor(paintListener) {
   gridCells.forEach((gridCell) =>
     gridCell.addEventListener("mousemove", paintListener)
   );
+}
+
+function removePaintingGrid(activeGrid) {
+  /* Removes the active painting grid from the page
+   * @param {Node} activeGrid - reference to the active grid
+   */
+  const gridParent = activeGrid.parentElement;
+  gridParent.removeChild(gridParent);
 }

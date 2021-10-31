@@ -6,6 +6,7 @@
   --palenight-accent: #ab47bc;
   --palenight-border: #2b2a3e;
   --palenight-second-background: #34324a;
+  --palenight-highlight: #444267;
 }
 
 body {
@@ -41,7 +42,7 @@ body {
   width: 150px;
 }
 
-.control-panel__button {
+.buttons {
   all: unset;
   font-size: 18pt;
   width: 75%;
@@ -53,8 +54,8 @@ body {
   cursor: pointer;
 }
 
-.control-panel__button:hover {
-  border: 2px solid var(--palenight-accent);
+.buttons:hover {
+  background-color: var(--palenight-highlight);
 }
 
 .painting-grid {
@@ -78,16 +79,23 @@ body {
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
   width: 60%;
-  height: 60%;
-  max-width: 960px; 
+  max-width: 800px;
+  height: min-content;
 
   /* colouring */
-  background-color: var(--palenight-foreground);
-  color: var(--palenight-accent);
+  background-color: var(--palenight-second-background);
+  color: var(--palenight-blue);
+  text-shadow: 0px 2px 1px black;
+  box-shadow: 1px 3px 3px 1px black;
 
-  /* layout */ 
-  display: flex; 
+  /* layout */
+  display: flex;
   flex-flow: column nowrap;
+  padding: 30px;
+
+  /* border */
+  border-radius: 10px;
+  border: 3px solid var(--palenight-border);
 }
 
 #grid-message.active {
@@ -108,7 +116,51 @@ body {
 
 #overlay.active {
   z-index: 1;
-  opacity: 0.6;
+  opacity: 0.4;
   filter: blur(4px);
   pointer-events: none;
+}
+.grid-message__header,
+.grid-message__fields,
+.grid-message__buttons {
+  margin: 15px 10px;
+}
+
+.grid-message__header {
+  text-align: left;
+  font-size: 24pt;
+  font-weight: 700;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--palenight-accent);
+}
+
+.grid-message__fields {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+}
+
+.grid-message__buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  align-self: center;
+  gap: 25px;
+}
+
+.grid-message__text,
+.grid-message__textarea {
+  font-size: 20pt;
+}
+
+.grid-message__textarea {
+  all: unset;
+  background-color: var(--palenight-background);
+  font-style: normal;
+  font-family: "Roboto", sans-serif;
+  height: 1.3em;
+  width: 4em;
+}
+
+#grid-accept {
+  width: 10em;
 }

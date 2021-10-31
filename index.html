@@ -12,6 +12,7 @@
     />
     <title>Etch-A-Sketch game</title>
   </head>
+
   <body>
     <div id="overlay">
       <header>
@@ -25,21 +26,21 @@
             <button
               type="button"
               id="reset-button"
-              class="control-panel__button"
+              class="buttons"
             >
               Reset
             </button>
             <button
               type="button"
               id="grid-button"
-              class="control-panel__button"
+              class="buttons"
             >
               Grid
             </button>
             <button
               type="button"
               id="color-button"
-              class="control-panel__button"
+              class="buttons"
             >
               Color
             </button>
@@ -47,6 +48,25 @@
         </div>
       </main>
     </div>
+    <div id="grid-message">
+      <div class="grid-message__header">
+        Set the desired dimensions of the grid. Please note that width and
+        height values must not exceed 100.
+      </div>
+      <div class="grid-message__fields">
+        <div>
+          <label class="grid-message__text" for="height-field">Height:</label>
+          <textarea class="grid-message__textarea" id="height-field"></textarea>
+        </div>
+        <div>
+          <label class="grid-message__text" for="width-field">Width:</label>
+          <textarea class="grid-message__textarea" id="width-field"></textarea>
+        </div>
+      </div>
+      <div class="grid-message__buttons">
+        <button id="grid-accept" class="buttons" type="button">Accept</button>
+        <button id="grid-decline" class="buttons" type="button">Decline</button>
+      </div>
     </div>
   </body>
 </html>
