@@ -9,11 +9,12 @@ import {
   gridButtonEventListener,
   resetEventListener,
   setupGridPopUpAccentEventListener,
+  declineButtonClickListener
 } from "./js/panel/buttons.js";
 
 let currentPaintListener = createPaintListener("#000000");
 let gridId = "grid";
-let newGrid = createPaintingGrid(12, 12, currentPaintListener, gridId);
+let newGrid = createPaintingGrid(60, 60, currentPaintListener, gridId);
 
 gridParent.appendChild(newGrid);
 
@@ -31,3 +32,6 @@ const acceptEventListener = setupGridPopUpAccentEventListener(
   removePaintingGrid
 );
 popUpGridAccept.addEventListener("click", acceptEventListener);
+
+const popUpDecline = document.getElementById("grid-decline");
+popUpDecline.addEventListener("click", declineButtonClickListener);

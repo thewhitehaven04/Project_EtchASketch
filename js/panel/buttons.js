@@ -2,6 +2,7 @@ export {
   resetEventListener,
   gridButtonEventListener,
   setupGridPopUpAccentEventListener,
+  declineButtonClickListener
 };
 
 import { gridParent, removePaintingGrid } from "../grid/grid.js";
@@ -26,7 +27,7 @@ function setupGridPopUpAccentEventListener(
   gridCreator,
   gridId,
   paintListener,
-  gridCleaner,
+  gridCleaner
 ) {
   /** Sets up a listener that removes the active grid and replaces it with the new one 
   with user-defined dimensions 
@@ -42,8 +43,8 @@ function setupGridPopUpAccentEventListener(
     // Hide the pop-up window
     const popUpWindow = document.querySelector("#grid-message");
     popUpWindow.classList.remove("active");
-    
-    // Remove the background blur  
+
+    // Remove the background blur
     const overlay = document.querySelector("#overlay");
     overlay.classList.remove("active");
 
@@ -54,12 +55,19 @@ function setupGridPopUpAccentEventListener(
     const height = Number.parseInt(
       document.querySelector("#height-field").value
     );
-    const width = Number.parseInt(
-      document.querySelector("#width-field").value
-    );
+    const width = Number.parseInt(document.querySelector("#width-field").value);
     const newGrid = gridCreator(height, width, paintListener, gridId);
     gridParent.appendChild(newGrid);
   };
 
   return gridPopupAcceptEventListener;
+}
+
+function declineButtonClickListener(event) {
+  /* Sets up a listener that closes the pop-up modal window and disables the overlay. */
+  const gridMessage = document.getElementById("grid-message");
+  gridMessage.classList.remove("active");
+  
+  const overlay = document.getElementById('overlay');
+  overlay.classList.remove("active");
 }
