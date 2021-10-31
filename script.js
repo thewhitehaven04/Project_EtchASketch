@@ -2,6 +2,8 @@ import {
   createPaintingGrid,
   createPaintListener,
   setPaintingGridColor,
+  gridParent,
+  removePaintingGrid,
 } from "./js/grid/grid.js";
 import {
   gridButtonEventListener,
@@ -10,11 +12,10 @@ import {
 } from "./js/panel/buttons.js";
 
 let currentPaintListener = createPaintListener("#000000");
-let gridNode = createPaintingGrid(12, 12, currentPaintListener);
-// Set up a global that references the active grid
+let gridId = "grid";
+let newGrid = createPaintingGrid(12, 12, currentPaintListener, gridId);
 
-const main = document.querySelector("main");
-main.appendChild(gridNode);
+gridParent.appendChild(newGrid);
 
 const resetButton = document.getElementById("reset-button");
 resetButton.addEventListener("click", resetEventListener);
@@ -23,5 +24,10 @@ const gridbutton = document.getElementById("grid-button");
 gridbutton.addEventListener("click", gridButtonEventListener);
 
 const popUpGridAccept = document.getElementById("grid-accept");
-const acceptEventListener = setupGridPopUpAccentEventListener(gridNode)
-popUpGridAccept.addEventListener(gridButtonEventListener);
+const acceptEventListener = setupGridPopUpAccentEventListener(
+  createPaintingGrid,
+  gridId,
+  currentPaintListener,
+  removePaintingGrid
+);
+popUpGridAccept.addEventListener("click", acceptEventListener);

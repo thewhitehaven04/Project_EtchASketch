@@ -3,7 +3,10 @@ export {
   createPaintListener,
   setPaintingGridColor,
   removePaintingGrid,
+  gridParent,
 };
+
+let gridParent = document.querySelector(".main-flex");
 
 function createPaintListener(color) {
   /** Helper function that creates the event listener than changes the color of the element
@@ -23,18 +26,21 @@ function createPaintingGrid(
   height,
   width,
   paintListener,
-  paintingGridClass = "painting-grid"
+  gridId,
+  paintingGridClass = "painting-grid",
 ) {
   /** Creates a painting grid with the defined height and width.
    * @param {Number} height - the number of grid cells in vertical dimension
    * @param {Number} width - the number of grid cells in horizontal dimension
    * @param {Function} paintListener - the event listener to be called upon mouse being over a cell
+   * @param {String} gridId - id of the grid being created 
    * @param {String} paintingGridClass
    * @returns {Node} gridNode - the element with grid-cells attached to it
    */
 
   // Create a div styled with the 'display: grid' property
   const gridNode = document.createElement("div");
+  gridNode.id = gridId;
   gridNode.classList.add(paintingGridClass);
 
   gridNode.style.setProperty("grid-template-columns", `repeat(${width}, 1fr)`);
@@ -62,10 +68,9 @@ function setPaintingGridColor(paintListener) {
   );
 }
 
-function removePaintingGrid(activeGrid) {
-  /* Removes the active painting grid from the page
-   * @param {Node} activeGrid - reference to the active grid
-   */
-  const gridParent = activeGrid.parentElement;
-  gridParent.removeChild(gridParent);
+function removePaintingGrid(gridId) {
+  /* Removes the active painting grid from the page 
+  @param {String} gridId - id of the grid being removed
+  */
+  gridParent.removeChild(document.getElementById(gridId));
 }
