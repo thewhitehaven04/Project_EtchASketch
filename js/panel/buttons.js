@@ -2,10 +2,12 @@ export {
   resetEventListener,
   gridButtonEventListener,
   setupGridPopUpAccentEventListener,
-  declineButtonClickListener
+  declineButtonClickListener,
+  colorChangePaintListener,
+  initColorPicker
 };
 
-import { gridParent, removePaintingGrid } from "../grid/grid.js";
+import { gridParent, createPaintListener } from "../grid/grid.js";
 
 function resetEventListener(event) {
   /* Sets up the event listener that resets grid cell background colors */
@@ -67,7 +69,18 @@ function declineButtonClickListener(event) {
   /* Sets up a listener that closes the pop-up modal window and disables the overlay. */
   const gridMessage = document.getElementById("grid-message");
   gridMessage.classList.remove("active");
-  
-  const overlay = document.getElementById('overlay');
+
+  const overlay = document.getElementById("overlay");
   overlay.classList.remove("active");
+}
+
+function initColorPicker() {
+  const colorPicker = document.getElementById("color-picker");
+  colorPicker.value = "#000000";
+  return colorPicker;
+}
+
+function colorChangePaintListener(event) {
+  const color = event.target.value;
+  document.addEventListener("mousemove", createPaintListener(color));
 }

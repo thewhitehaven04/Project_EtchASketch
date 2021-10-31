@@ -42,16 +42,40 @@ body {
   width: 150px;
 }
 
-.buttons {
-  all: unset;
-  font-size: 18pt;
+.control-panel__div {
+  margin: 10px;
+  padding: 10px;
   width: 75%;
-  text-align: center;
-  padding: 5px;
-  border: 2px solid var(--palenight-border);
+  font-size: 18pt;
+  
+  border : inherit;
+  border-radius: 5px;
+  background-color: var(--palenight-background);
+  
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+ 
+.buttons,
+#color-picker {
+  all: unset;
+  border: inherit;
   background-color: var(--palenight-background);
   border-radius: 5px;
+  padding: 5px;
+  margin: 10px;
+  width: 75%;
   cursor: pointer;
+}
+
+.buttons {
+  font-size: 18pt;
+  text-align: center;
+}
+
+#color-picker {
+  height: 18pt;
 }
 
 .buttons:hover {
@@ -168,4 +192,13 @@ body {
 
 #grid-accept {
   width: 10em;
+}
+
+.color-picker {
+  padding: 15px;
+  transform: scale(0);
+}
+
+.color-picker.active {
+  transform: scale(1);
 }

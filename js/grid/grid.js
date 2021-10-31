@@ -1,7 +1,6 @@
 export {
   createPaintingGrid,
   createPaintListener,
-  setPaintingGridColor,
   removePaintingGrid,
   gridParent,
 };
@@ -27,13 +26,13 @@ function createPaintingGrid(
   width,
   paintListener,
   gridId,
-  paintingGridClass = "painting-grid",
+  paintingGridClass = "painting-grid"
 ) {
   /** Creates a painting grid with the defined height and width.
    * @param {Number} height - the number of grid cells in vertical dimension
    * @param {Number} width - the number of grid cells in horizontal dimension
    * @param {Function} paintListener - the event listener to be called upon mouse being over a cell
-   * @param {String} gridId - id of the grid being created 
+   * @param {String} gridId - id of the grid being created
    * @param {String} paintingGridClass
    * @returns {Node} gridNode - the element with grid-cells attached to it
    */
@@ -56,16 +55,6 @@ function createPaintingGrid(
   // Make the cell black if the cursor is over it
   gridNode.addEventListener("mousemove", paintListener);
   return gridNode;
-}
-
-function setPaintingGridColor(paintListener) {
-  /** Sets the marker color.
-   * @param {NodeList} gridCells - NodeList of gridCells the mousemove eventListener to be applied to
-   */
-  const gridCells = document.querySelectorAll(".grid-cell");
-  gridCells.forEach((gridCell) =>
-    gridCell.addEventListener("mousemove", paintListener)
-  );
 }
 
 function removePaintingGrid(gridId) {
