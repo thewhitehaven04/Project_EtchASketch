@@ -21,13 +21,11 @@
         </div>
       </header>
       <main class="main-flex">
-          <div class="control-panel">
-            <button type="button" id="grid-button" class="buttons">Grid</button>
-            <input type="color" id="color-picker" />
-            <button type="button" id="reset-button" class="buttons">
-              Reset
-            </button>
-          </div>
+        <div class="control-panel">
+          <button type="button" id="grid-button" class="buttons">Grid</button>
+          <input type="color" id="color-picker" />
+          <button type="button" id="reset-button" class="buttons">Reset</button>
+        </div>
       </main>
     </div>
     <div id="grid-message">
@@ -36,12 +34,10 @@
         height values must not exceed 100.
       </div>
       <div class="grid-message__fields">
-        <div>
-          <label class="grid-message__text" for="height-field">Height:</label>
+        <div class="labels__grid">
+          <label class="grid-message__text" for="height-field" id="height__label">Height:</label>
           <textarea class="grid-message__textarea" id="height-field"></textarea>
-        </div>
-        <div>
-          <label class="grid-message__text" for="width-field">Width:</label>
+          <label class="grid-message__text" for="width-field" id="width__label">Width:</label>
           <textarea class="grid-message__textarea" id="width-field"></textarea>
         </div>
       </div>

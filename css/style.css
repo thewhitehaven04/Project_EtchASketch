@@ -36,13 +36,13 @@ body {
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 6px;
   border: 3px solid var(--palenight-border);
   background-color: var(--palenight-second-background);
   border-radius: 15px;
   width: 150px;
 }
- 
+
 .buttons,
 #color-picker {
   all: unset;
@@ -56,7 +56,7 @@ body {
 }
 
 .buttons {
-  font-size: 18pt;
+  font-size: 20pt;
   text-align: center;
 }
 
@@ -155,6 +155,36 @@ body {
   border-bottom: 2px solid var(--palenight-accent);
 }
 
+.labels__grid {
+  display: grid;
+  grid-template-areas:
+    "label textarea_height"
+    "label textarea_width";
+  gap: 15px;
+  grid-template-columns: 90px 2em;
+  align-items: baseline;
+}
+
+#height-label {
+  grid-area: label;
+}
+
+#width-label {
+  grid-area: label;
+}
+
+#height-field {
+  grid-area: textarea_height;
+}
+
+#width-field {
+  grid-area: textarea_width;
+}
+
+.labels__grid textarea {
+  height: 1.3em;
+}
+
 .grid-message__fields {
   display: flex;
   flex-flow: column nowrap;
@@ -169,7 +199,8 @@ body {
 }
 
 .grid-message__text,
-.grid-message__textarea {
+.grid-message__textarea, 
+.labels__grid textarea {
   font-size: 20pt;
 }
 

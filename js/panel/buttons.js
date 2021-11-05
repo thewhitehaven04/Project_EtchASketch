@@ -71,6 +71,7 @@ function setupGridPopUpAccentEventListener(
       // Show the warning message
       const warningMessage = document.createElement("span");
       warningMessage.textContent = `Unable to setup the grid with the defined width and height.`;
+      warningMessage.classList.add('grid-message__text');
       warningMessage.id = "grid-accept__error-msg";
 
       const gridMessageFields = document.querySelector("#grid-message");
