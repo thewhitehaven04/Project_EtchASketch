@@ -4,7 +4,7 @@ export {
   setupGridPopUpAccentEventListener,
   declineButtonClickListener,
   colorChangePaintListener,
-  initColorPicker
+  initColorPicker,
 };
 
 import { gridParent, createPaintListener } from "../grid/grid.js";
@@ -41,25 +41,44 @@ function setupGridPopUpAccentEventListener(
   const gridPopupAcceptEventListener = (event) => {
     /* Sets up a listener that adjusts grid sizes depending on 
   user input in height and width fields of the pop-up */
-
-    // Hide the pop-up window
-    const popUpWindow = document.querySelector("#grid-message");
-    popUpWindow.classList.remove("active");
-
-    // Remove the background blur
-    const overlay = document.querySelector("#overlay");
-    overlay.classList.remove("active");
-
-    // Remove the existing grid
-    gridCleaner(gridId);
-
-    // Setup a new grid
     const height = Number.parseInt(
       document.querySelector("#height-field").value
     );
     const width = Number.parseInt(document.querySelector("#width-field").value);
-    const newGrid = gridCreator(height, width, paintListener, gridId);
-    gridParent.appendChild(newGrid);
+
+    if ((height < 100) & (height > 0) & ((width < 100) & (width > 0))) {
+      const warningMessage = document.querySelector(`#grid-accept__error-msg`);
+      if (warningMessage) {
+        const parent = warningMessage.parentElement;
+        parent.removeChild(warningMessage);
+      }
+
+      // Hide the pop-up window
+      const popUpWindow = document.querySelector("#grid-message");
+      popUpWindow.classList.remove("active");
+
+      // Remove the background blur
+      const overlay = document.querySelector("#overlay");
+      overlay.classList.remove("active");
+
+      // Remove the existing grid
+      gridCleaner(gridId);
+
+      // Setup a new grid
+      const newGrid = gridCreator(height, width, paintListener, gridId);
+      gridParent.appendChild(newGrid);
+    } else {
+      // Show the warning message
+      const warningMessage = document.createElement("span");
+      warningMessage.textContent = `Unable to setup the grid with the defined width and height.`;
+      warningMessage.id = "grid-accept__error-msg";
+
+      const gridMessageFields = document.querySelector("#grid-message");
+      // Prevent warning messages from adding up
+      if (!gridMessageFields.querySelector(`#${warningMessage.id}`)) {
+        gridMessageFields.appendChild(warningMessage);
+      }
+    }
   };
 
   return gridPopupAcceptEventListener;
