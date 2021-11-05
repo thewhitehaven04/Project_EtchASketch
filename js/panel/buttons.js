@@ -46,7 +46,7 @@ function setupGridPopUpAccentEventListener(
     );
     const width = Number.parseInt(document.querySelector("#width-field").value);
 
-    if ((height < 100) & (height > 0) & ((width < 100) & (width > 0))) {
+    if ((height <= 100) & (height > 0) & ((width <= 100) & (width > 0))) {
       const warningMessage = document.querySelector(`#grid-accept__error-msg`);
       if (warningMessage) {
         const parent = warningMessage.parentElement;

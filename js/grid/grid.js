@@ -47,7 +47,7 @@ function createPaintingGrid(
 
   for (let currentHeight = 0; currentHeight < height; currentHeight++) {
     for (let currentWidth = 0; currentWidth < width; currentWidth++) {
-      const gridCell = document.createElement("div");
+      const gridCell = document.createElement("span");
       gridCell.classList.add("grid-cell");
       gridNode.appendChild(gridCell);
     }

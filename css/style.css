@@ -25,6 +25,8 @@ body {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
+  align-items: start;
+  max-height: 750px;
   gap: 40px;
 }
 
@@ -38,23 +40,7 @@ body {
   border: 3px solid var(--palenight-border);
   background-color: var(--palenight-second-background);
   border-radius: 15px;
-  height: 750px;
   width: 150px;
-}
-
-.control-panel__div {
-  margin: 10px;
-  padding: 10px;
-  width: 75%;
-  font-size: 18pt;
-  
-  border : inherit;
-  border-radius: 5px;
-  background-color: var(--palenight-background);
-  
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
 }
  
 .buttons,
@@ -75,7 +61,7 @@ body {
 }
 
 #color-picker {
-  height: 18pt;
+  height: 70px;
 }
 
 .buttons:hover {
@@ -84,16 +70,22 @@ body {
 
 .painting-grid {
   display: grid;
+  align-items: center;
+  justify-content: center;
   border: 3px solid var(--palenight-border);
   border-radius: 15px;
   background-color: var(--palenight-second-background);
+  row-gap: 0px;
+  height: 750px;
   width: 750px;
-  padding: 25px;
+  padding: 15px;
 }
 
 .grid-cell {
   border: 1px solid #333333;
   background-color: white;
+  height: 100%;
+  width: 100%;
 }
 
 #grid-message {

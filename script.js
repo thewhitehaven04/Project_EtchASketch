@@ -16,7 +16,7 @@ import {
 
 let currentPaintListener = createPaintListener("#000000");
 let gridId = "grid";
-let newGrid = createPaintingGrid(60, 60, currentPaintListener, gridId);
+let newGrid = createPaintingGrid(24, 24, currentPaintListener, gridId);
 
 gridParent.appendChild(newGrid);
 
